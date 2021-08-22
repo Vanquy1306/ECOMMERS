@@ -22,7 +22,7 @@ const Menu = ({ history }) => (
                     style={isActive(history, "/")}
                     to="/"
                 >
-                    MQ Coffee House
+                    MQ COFFEE HOUSE
                 </Link>
             </li>
             <li className="nav-item">
@@ -31,7 +31,7 @@ const Menu = ({ history }) => (
                     style={isActive(history, "/")}
                     to="/"
                 >
-                    Home
+                    HOME
                 </Link>
             </li>
 
@@ -41,7 +41,7 @@ const Menu = ({ history }) => (
                     style={isActive(history, "/shop")}
                     to="/shop"
                 >
-                    Shop
+                    SHOP
                 </Link>
             </li>
 
@@ -52,7 +52,7 @@ const Menu = ({ history }) => (
                         style={isActive(history, "/user/dashboard")}
                         to="/user/dashboard"
                     >
-                        Dashboard
+                        DASHBOARD
                     </Link>
                 </li>
             )}
@@ -64,7 +64,7 @@ const Menu = ({ history }) => (
                         style={isActive(history, "/admin/dashboard")}
                         to="/admin/dashboard"
                     >
-                        Dashboard
+                        DASHBOARD
                     </Link>
                 </li>
             )}
@@ -78,7 +78,7 @@ const Menu = ({ history }) => (
                             style={isActive(history, "/signin")}
                             to="/signin"
                         >
-                            Signin
+                            SIGNIN
                         </Link>
                     </li>
 
@@ -88,7 +88,7 @@ const Menu = ({ history }) => (
                             style={isActive(history, "/signup")}
                             to="/signup"
                         >
-                            Signup
+                            SIGNUP
                         </Link>
                     </li>
                 </Fragment>
@@ -101,7 +101,7 @@ const Menu = ({ history }) => (
         style={isActive(history, "/cart")}
         to="/cart"
     >
-        Cart{" "}
+        CART{" "}
         <sup>
             <small className="cart-badge">{itemTotal()}</small>
         </sup>
@@ -119,7 +119,7 @@ const Menu = ({ history }) => (
                             })
                         }
                     >
-                        Signout
+                        SIGNOUT
                     </span>
                 </li>
             )}

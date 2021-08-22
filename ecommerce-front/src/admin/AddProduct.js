@@ -158,7 +158,13 @@ const AddProduct = () => {
                 <h2>Loading...</h2>
             </div>
         );
-
+        const goBack = () => (
+            <div className="mt-5">
+                <Link to="/admin/dashboard" className="text-warning">
+                    Back to Dashboard
+                </Link>
+            </div>
+        );
     return (
             <div className="row">
                 <div className="col-md-8 offset-md-2">
@@ -166,6 +172,8 @@ const AddProduct = () => {
                     {showSuccess()}
                     {showError()}
                     {newPostForm()}
+                    {goBack()}
+
                 </div>
             </div>
     );

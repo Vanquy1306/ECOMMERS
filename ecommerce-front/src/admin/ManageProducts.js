@@ -32,10 +32,19 @@ const ManageProducts = () => {
     useEffect(() => {
         loadProducts();
     }, []);
-
+    const goBack = () => (
+        <div className="mt-5">
+            <Link to="/admin/dashboard" className="text-warning">
+                Back to Dashboard
+            </Link>
+        </div>
+    );
     return (
  
             <div className="row">
+                <div className="col-4">
+                {goBack()}
+                </div>
                 <div className="col-12">
                     <h2 className="text-center">
                         Total {products.length} products

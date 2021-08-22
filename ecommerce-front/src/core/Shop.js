@@ -113,15 +113,6 @@ const Shop = () => {
                         />
                     </ul>
 
-                    <h4>Filter by price range</h4>
-                    <div>
-                        <RadioBox
-                            prices={prices}
-                            handleFilters={filters =>
-                                handleFilters(filters, "price")
-                            }
-                        />
-                    </div>
                 </div>
 
                 <div className="col-8">

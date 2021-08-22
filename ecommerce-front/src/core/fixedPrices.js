@@ -6,12 +6,12 @@ export const prices = [
     },
     {
         _id: 1,
-        name: "$0 to $9",
-        array: [0, 9]
+        name: "VNĐ 0 to VNĐ 50000",
+        array: [0, 50000]
     },
     {
         _id: 2,
-        name: "$10 to $19",
+        name: "VNĐ 60000 to VNĐ 100000",
         array: [10, 19]
     },
     {

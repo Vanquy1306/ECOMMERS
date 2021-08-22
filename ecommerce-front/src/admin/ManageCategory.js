@@ -32,10 +32,19 @@ const ManageCategory = () => {
     useEffect(() => {
         loadProducts();
     }, []);
-
+    const goBack = () => (
+        <div className="mt-5">
+            <Link to="/admin/dashboard" className="text-warning">
+                Back to Dashboard
+            </Link>
+        </div>
+    );
     return (
-
-            <div className="row">
+      
+        <div className="row">
+                 <div className="col-4">
+                {goBack()}
+                </div>                
                 <div className="col-12">
                     <h2 className="text-center">
                         Total {products.length} category
@@ -45,7 +54,7 @@ const ManageCategory = () => {
                         {products.map((p, i) => (
                             <li
                                 key={i}
-                                className="list-group-item d-flex justify-content-between align-items-center"
+                                className="list-group-item d-flex justify-content-between align-items-center center"
                             >
                                 <strong>{p.name}</strong>
                                 <Link to={`/admin/category/update/${p._id}`}>
