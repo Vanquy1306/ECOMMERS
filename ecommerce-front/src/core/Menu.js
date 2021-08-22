@@ -6,7 +6,7 @@ import { itemTotal } from "./cartHelpers";
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
-        return { color: "#ff9900" };
+        return { color: "#b9b0b0" };
     } else {
         return { color: "#ffffff" };
     }
@@ -16,6 +16,15 @@ const Menu = ({ history }) => (
     
         <ul className="nav">
             <div className=" nav left-links" >
+            <li className="navbar-logo">
+                <Link
+                    className=" nav-link"
+                    style={isActive(history, "/")}
+                    to="/"
+                >
+                    MQ Coffee House
+                </Link>
+            </li>
             <li className="nav-item">
                 <Link
                     className="nav-link"
