@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
-import { getProducts, deleteProduct } from "./apiAdmin";
+import { getCategories, deleteCategory } from "./apiAdmin";
 
-const ManageProducts = () => {
+const ManageCategory = () => {
     const [products, setProducts] = useState([]);
 
     const { user, token } = isAuthenticated();
 
     const loadProducts = () => {
-        getProducts().then(data => {
+        getCategories().then(data => {
             if (data.error) {
                 console.log(data.error);
             } else {
@@ -19,8 +19,8 @@ const ManageProducts = () => {
         });
     };
 
-    const destroy = productId => {
-        deleteProduct(productId, user._id, token).then(data => {
+    const destroy = categoryId => {
+        deleteCategory(categoryId, user._id, token).then(data => {
             if (data.error) {
                 console.log(data.error);
             } else {
@@ -34,11 +34,11 @@ const ManageProducts = () => {
     }, []);
 
     return (
- 
+
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-center">
-                        Total {products.length} products
+                        Total {products.length} category
                     </h2>
                     <hr />
                     <ul className="list-group">
@@ -48,7 +48,7 @@ const ManageProducts = () => {
                                 className="list-group-item d-flex justify-content-between align-items-center"
                             >
                                 <strong>{p.name}</strong>
-                                <Link to={`/admin/product/update/${p._id}`}>
+                                <Link to={`/admin/category/update/${p._id}`}>
                                     <span className="badge badge-warning badge-pill">
                                         Update
                                     </span>
@@ -68,4 +68,4 @@ const ManageProducts = () => {
     );
 };
 
-export default ManageProducts;
+export default ManageCategory;

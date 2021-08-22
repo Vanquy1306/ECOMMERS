@@ -183,13 +183,20 @@ const UpdateProduct = ({ match }) => {
     const redirectUser = () => {
         if (redirectToProfile) {
             if (!error) {
-                return <Redirect to="/" />;
+                return <Redirect to="/admin/products" />;
             }
         }
     };
-
+    const goBackBTN = () => {
+        return (
+            <div className="mt-5">
+                <Link to="/admin/products" className="text-info">
+                    Back To Products
+                </Link>
+            </div>
+        );
+    };
     return (
-        <Layout title="Add a new product" description={`G'day ${user.name}, ready to add a new product?`}>
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showLoading()}
@@ -197,9 +204,9 @@ const UpdateProduct = ({ match }) => {
                     {showError()}
                     {newPostForm()}
                     {redirectUser()}
+                    {goBackBTN()}
                 </div>
             </div>
-        </Layout>
     );
 };
 

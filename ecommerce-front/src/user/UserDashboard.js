@@ -4,7 +4,6 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getPurchaseHistory } from "./apiUser";
-import moment from "moment";
 
 const Dashboard = () => {
     const [history, setHistory] = useState([]);
@@ -15,7 +14,7 @@ const Dashboard = () => {
     const token = isAuthenticated().token;
 
     const init = (userId, token) => {
-        getPurchaseHistory(userId, token).then(data => {
+        getPurchaseHistory(userId, token ).then(data => {
             if (data.error) {
                 console.log(data.error);
             } else {
@@ -24,10 +23,12 @@ const Dashboard = () => {
         });
     };
 
+
     useEffect(() => {
         init(_id, token);
-    }, []);
 
+    }, []);
+    
     const userLinks = () => {
         return (
             <div className="card">
@@ -80,12 +81,7 @@ const Dashboard = () => {
                                                 <h6>
                                                     Product price: ${p.price}
                                                 </h6>
-                                                <h6>
-                                                    Purchased date:{" "}
-                                                    {moment(
-                                                        p.createdAt
-                                                    ).fromNow()}
-                                                </h6>
+
                                             </div>
                                         );
                                     })}

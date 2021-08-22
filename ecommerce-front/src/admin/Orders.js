@@ -35,6 +35,7 @@ const Orders = () => {
     useEffect(() => {
         loadOrders();
         loadStatusValues();
+
     }, []);
 
     const showOrdersLength = () => {

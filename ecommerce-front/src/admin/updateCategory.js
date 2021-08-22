@@ -99,7 +99,7 @@ const UpdateCategory = ({ match }) => {
     const redirectUser = () => {
         if (redirectToProfile) {
             if (!error) {
-                return <Redirect to="/admin/categories" />;
+                return <Redirect to="/admin/categorys" />;
             }
         }
     };
@@ -107,7 +107,7 @@ const UpdateCategory = ({ match }) => {
     const goBackBTN = () => {
         return (
             <div className="mt-5">
-                <Link to="/admin/categories" className="text-info">
+                <Link to="/admin/categorys" className="text-info">
                     Back To Admin Home
                 </Link>
             </div>
@@ -115,11 +115,7 @@ const UpdateCategory = ({ match }) => {
     };
 
     return (
-        <Layout
-            title={`Hi ${user.name}`}
-            description={`This is Update Product Action Page`}
-            className="container-fluid"
-        >
+       
             <div className="row">
                 <div className="col-md-8 offset-md-2 m-b-250 mb-5">
                     {showError()}
@@ -128,7 +124,6 @@ const UpdateCategory = ({ match }) => {
                     {redirectUser()}
                 </div>
             </div>
-        </Layout>
     );
 };
 

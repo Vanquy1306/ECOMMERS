@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import Card from "./Card";
@@ -6,7 +5,6 @@ import { getCategories, getFilteredProducts } from "./apiCore";
 import Checkbox from "./Checkbox";
 import RadioBox from "./RadioBox";
 import { prices } from "./fixedPrices";
-import { Search } from "history";
 
 const Shop = () => {
     const [myFilters, setMyFilters] = useState({

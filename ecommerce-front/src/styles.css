@@ -16,12 +16,12 @@
      padding: 2px;
      font-size: 12px;
      font-style: italic;
-     background: #000;
+     background: rgb(0, 228, 57);
  }
  /**
   * single product page - product name
   */
- 
+
  .name {
      background: indigo;
      color: #fff;
@@ -65,21 +65,56 @@
          margin-top: 10px;
      }
  }
- 
+
  /**
   * jumbotron animation
   */
- 
+ .image {
+    height: 220px;
+    background-image: url(http://caphe8.com/wp-content/uploads/2019/06/store_xuanla_hn_master.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px;
+
+ }
+ .center {
+    text-align: center;
+  }
  .jumbotron {
-     height: 180px;
-     color: #fff;
-     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+     height: 90px;
+     color: rgb(255, 255, 255);
+     background: black;
      background-size: 400% 400%;
      -webkit-animation: Gradient 15s ease infinite;
      -moz-animation: Gradient 15s ease infinite;
      animation: Gradient 15s ease infinite;
  }
- 
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 50px;
+  background-color: #333;
+
+}
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+.navright {
+  text-align: right;
+}
+.left-links{
+    flex:1 1 200px;
+}
  @-webkit-keyframes Gradient {
      0% {
          background-position: 0% 50%;
@@ -115,3 +150,44 @@
          background-position: 0% 50%;
      }
  }
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+  }
+  
+  .home,
+  .services,
+  .products,
+  .sign-up {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  
+  .services {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+  }
+  
+  .products {
+    background-position: center;
+    background-size: fill;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+  }
+  
+  .sign-up {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+  }
