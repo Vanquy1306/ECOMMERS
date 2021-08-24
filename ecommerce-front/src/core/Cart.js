@@ -27,6 +27,7 @@ const Cart = () => {
                         showRemoveProductButton={true}
                         setRun={setRun}
                         run={run}
+
                     />
                 ))}
             </div>

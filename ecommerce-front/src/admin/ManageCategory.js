@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
-import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getCategories, deleteCategory } from "./apiAdmin";
-
+import Sidebar from "../user/Sidebar";
 const ManageCategory = () => {
     const [products, setProducts] = useState([]);
 
@@ -32,18 +32,11 @@ const ManageCategory = () => {
     useEffect(() => {
         loadProducts();
     }, []);
-    const goBack = () => (
-        <div className="mt-5">
-            <Link to="/admin/dashboard" className="text-warning">
-                Back to Dashboard
-            </Link>
-        </div>
-    );
     return (
-      
+        <div>
+        <Sidebar/>
         <div className="row">
                  <div className="col-4">
-                {goBack()}
                 </div>                
                 <div className="col-12">
                     <h2 className="text-center">
@@ -73,6 +66,7 @@ const ManageCategory = () => {
                     </ul>
                     <br />
                 </div>
+            </div>
             </div>
     );
 };

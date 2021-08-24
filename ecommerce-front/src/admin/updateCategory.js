@@ -4,6 +4,7 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link, Redirect } from 'react-router-dom';
 import { getCategory, updateCategory } from './apiAdmin';
+import Sidebar from "../user/Sidebar";
 // {category: ["5cd0258f2793ec6e100bc191"], price: []}
 // http://localhost:3000/admin/category/update/5cd0258f2793ec6e100bc191
 const UpdateCategory = ({ match }) => {
@@ -63,23 +64,22 @@ const UpdateCategory = ({ match }) => {
 
     const updateCategoryForm = () => (
         <div className="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-            <form className="mb-5" onSubmit={submitCategoryForm}>
-                <span className="login100-form-title p-b-32 m-b-7">Update Category Form</span>
-                <span className="txt1 p-b-11">Category Name</span>
+            <form className="mb-5 center" onSubmit={submitCategoryForm}>
+                <span className="form-inputs">Update Category </span>
                 <br />
                 <br />
-                <div className="wrap-input100 validate-input m-b-36">
+                <div className=" validate-input m-b-36">
                     <input
                         onChange={handleChange('name')}
                         value={name}
-                        className="input100"
+                        className="form-control"
                         type="text"
                         required
                         name="name"
                     />
                 </div>
-                <div className="w-size25">
-                    <button type="submit" className="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+                <div className="center">
+                    <button type="submit" className="form-input-btn">
                         Save Changes
                     </button>
                 </div>
@@ -115,6 +115,8 @@ const UpdateCategory = ({ match }) => {
     };
 
     return (
+<div>
+    <Sidebar/>
        
             <div className="row">
                 <div className="col-md-8 offset-md-2 m-b-250 mb-5">
@@ -123,7 +125,9 @@ const UpdateCategory = ({ match }) => {
                     {goBackBTN()}
                     {redirectUser()}
                 </div>
-            </div>
+                </div>
+                </div>
+
     );
 };
 

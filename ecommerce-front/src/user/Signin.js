@@ -36,21 +36,21 @@ const Signin = () => {
             }
         });
     };
-
     const signUpForm = () => (
-        <form>
-     
-            <div className="form-group">
+        <form className="form-center">
+            <h1> Sign In </h1>
+            <h3>Please fill in this form to create an account.</h3>
+            <div className="form-inputs">
                 <label className="text-muted">Email</label>
-                <input onChange={handleChange('email')} type="email" className="form-control" value={email} />
+                <input onChange={handleChange('email')} type="email" className="form-control center" value={email} placeholder="Enter Email" />
             </div>
 
-            <div className="form-group">
+            <div className="form-inputs">
                 <label className="text-muted">Password</label>
-                <input onChange={handleChange('password')} type="password" className="form-control" value={password} />
+                <input onChange={handleChange('password')} type="password" className="form-control center" value={password} placeholder="Enter Password" />
             </div>
-            <button onClick={clickSubmit} className="btn btn-primary">
-                Submit
+            <button onClick={clickSubmit} className="form-input-btn">
+                Login
             </button>
         </form>
     );
@@ -73,7 +73,7 @@ const Signin = () => {
             if (user && user.role === 1) {
                 return <Redirect to="/admin/dashboard" />;
             } else {
-                return <Redirect to="/user/dashboard" />;
+                return <Redirect to="/" />;
             }
         }
         if (isAuthenticated()) {

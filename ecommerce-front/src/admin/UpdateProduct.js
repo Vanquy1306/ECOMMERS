@@ -4,6 +4,8 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link, Redirect } from 'react-router-dom';
 import { getProduct, getCategories, updateProduct } from './apiAdmin';
+import Sidebar from "../user/Sidebar";
+
 
 const UpdateProduct = ({ match }) => {
     const [values, setValues] = useState({
@@ -197,6 +199,8 @@ const UpdateProduct = ({ match }) => {
         );
     };
     return (
+        <div>
+            <Sidebar/>
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showLoading()}
@@ -206,6 +210,7 @@ const UpdateProduct = ({ match }) => {
                     {redirectUser()}
                     {goBackBTN()}
                 </div>
+            </div>
             </div>
     );
 };

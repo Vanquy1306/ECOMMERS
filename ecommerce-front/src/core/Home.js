@@ -45,6 +45,7 @@ const Home = () => {
             description="Cà phê nhé - Một lời hẹn rất riêng của người Việt Một lời ngỏ mộc mạc để mình ngồi lại bên nhau và sẻ chia câu chuyện của riêng mình"
             className="container-fluid "
         >
+                        <div className="homeimg"></div>
             <Search />
             <h2 className="mb-4">New Arrivals</h2>
             <div className="row">

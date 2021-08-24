@@ -4,6 +4,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { createCategory } from "./apiAdmin";
+import Sidebar from "../user/Sidebar";
 
 const AddCategory = () => {
     const [name, setName] = useState("");
@@ -69,7 +70,8 @@ const AddCategory = () => {
         </div>
     );
     return (
-
+<div>
+    <Sidebar/>
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showSuccess()}
@@ -78,6 +80,7 @@ const AddCategory = () => {
                     {goBack()}
 
                 </div>
+            </div>
             </div>
     );
 };

@@ -1,8 +1,12 @@
+/* eslint-disable */
 import React from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
-
+import FeaturedInfo from "./FeaturedInfo";
+import Chart from "./Chart";
+import { userData } from "./dummyData";
+import Sidebar from "./Sidebar";
 const AdminDashboard = () => {
     const {
         user: { name, email, role }
@@ -10,8 +14,8 @@ const AdminDashboard = () => {
 
     const adminLinks = () => {
         return (
-            <div className="card">
-                <h4 className="card-header">Admin Links</h4>
+            <div>
+                <h4 className="card-header ">Dashboard Center</h4>
                 <ul className="list-group">
                     <li className="list-group-item">
                         <Link className="nav-link" to="/create/category">
@@ -45,30 +49,27 @@ const AdminDashboard = () => {
 
     const adminInfo = () => {
         return (
-            <div className="card mb-5">
-                <h3 className="card-header">User Information</h3>
-                <ul className="list-group">
-                    <li className="list-group-item">{name}</li>
-                    <li className="list-group-item">{email}</li>
-                    <li className="list-group-item">
-                        {role === 1 ? "Admin" : "Registered User"}
-                    </li>
-                </ul>
-            </div>
+            <div className=" mb-5">
+            <FeaturedInfo/>
+            <Chart data={userData} title="User Analytics" grid dataKey="Active User"/> 
+
+         </div>
         );
     };
 
     return (
-        <Layout
-            title="Dashboard"
-            description={`G'day ${name}!`}
-            className="container-fluid"
-        >
+        <div>
+   <Sidebar/>
+
             <div className="row">
-                <div className="col-3">{adminLinks()}</div>
-                <div className="col-9">{adminInfo()}</div>
+                <div className="col-3"></div>
+                <div className="col-9">
+                    {adminInfo()}
+                </div>
+
             </div>
-        </Layout>
+            </div>
+
     );
 };
 

@@ -4,6 +4,7 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
 import { createProduct, getCategories } from './apiAdmin';
+import Sidebar from '../user/Sidebar';
 
 const AddProduct = () => {
     const [values, setValues] = useState({
@@ -166,6 +167,8 @@ const AddProduct = () => {
             </div>
         );
     return (
+        <div>
+            <Sidebar/>
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showLoading()}
@@ -175,6 +178,7 @@ const AddProduct = () => {
                     {goBack()}
 
                 </div>
+            </div>
             </div>
     );
 };

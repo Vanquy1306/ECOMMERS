@@ -11,10 +11,7 @@ const Layout = ({
 }) => (
     <div>
         <Menu />
-
-         <div className=" image center">
-           <h2>{title}</h2>
-            <p className="lead">{description}</p>
+         <div className="center">
         </div>
         <div className={className}>{children}</div>
         <Footer/>

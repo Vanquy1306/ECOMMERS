@@ -95,19 +95,19 @@ const Menu = ({ history }) => (
             )}
                         {isAuthenticated() && (
 
-<li className="nav-item">
-    <Link
-        className="nav-link"
-        style={isActive(history, "/cart")}
-        to="/cart"
-    >
-        CART{" "}
-        <sup>
-            <small className="cart-badge">{itemTotal()}</small>
-        </sup>
-    </Link>
-</li>
-)}
+                <li className="nav-item">
+                 <Link
+                      className="nav-link"
+                      style={isActive(history, "/cart")}
+                     to="/cart"
+                      >
+                       CART{" "}
+                          <sup>
+                         <small className="cart-badge">{itemTotal()}</small>
+                             </sup>
+                     </Link>
+                </li>
+            )}
             {isAuthenticated() && (
                 <li className="navright">
                     <span

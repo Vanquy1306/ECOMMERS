@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import Card from "./Card";
 import { getCategories, getFilteredProducts } from "./apiCore";
 import Checkbox from "./Checkbox";
-import RadioBox from "./RadioBox";
 import { prices } from "./fixedPrices";
 
 const Shop = () => {
@@ -96,14 +96,15 @@ const Shop = () => {
     };
 
     return (
-        <Layout
-            title="Shop Page"
-            description="Search and find books of your choice"
-            className="container-fluid"
-        >
+        <Layout title="Shop Page"
+        description="Search and find books of your choice"
+        className="container-fluid" >
+            
+        <div>
+            <div className="shopimg"></div>
             <div className="row">
                 <div className="col-4">
-                    <h4>Filter by categories</h4>
+                    <h4>Filter by</h4>
                     <ul>
                         <Checkbox
                             categories={categories}
@@ -128,6 +129,7 @@ const Shop = () => {
                     {loadMoreButton()}
                 </div>
             </div>
+        </div>
         </Layout>
     );
 };
