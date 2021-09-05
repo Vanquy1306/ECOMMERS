@@ -125,14 +125,14 @@ const Orders = () => {
                                         Amount: ${o.amount}
                                     </li>
                                     <li className="list-group-item">
-                                        Ordered by: {o.user.name}
-                                    </li>
-                                    <li className="list-group-item">
                                         Ordered on:{" "}
                                         {moment(o.createdAt).fromNow()}
                                     </li>
                                     <li className="list-group-item">
                                         Delivery address: {o.address}
+                                    </li>
+                                    <li className="list-group-item">
+                                        Delivery phone: {o.phonenumber}
                                     </li>
                                 </ul>
 

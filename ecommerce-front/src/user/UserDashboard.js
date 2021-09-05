@@ -4,15 +4,27 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getPurchaseHistory } from "./apiUser";
+import { listOrders } from "../admin/apiAdmin";
 
 const Dashboard = () => {
     const [history, setHistory] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const {
         user: { _id, name, email, role }
     } = isAuthenticated();
     const token = isAuthenticated().token;
+    const user = isAuthenticated().user;
 
+    const loadOrders = () => {
+        listOrders(user._id, token).then(data => {
+            if (data.error) {
+                console.log(data.error);
+            } else {
+                setOrders(data);
+            }
+        });
+    };
     const init = (userId, token) => {
         getPurchaseHistory(userId, token ).then(data => {
             if (data.error) {
@@ -26,9 +38,10 @@ const Dashboard = () => {
 
     useEffect(() => {
         init(_id, token);
+        loadOrders();
 
     }, []);
-    
+
     const userLinks = () => {
         return (
             <div className="card">
@@ -70,24 +83,39 @@ const Dashboard = () => {
                 <h3 className="card-header">Purchase history</h3>
                 <ul className="list-group">
                     <li className="list-group-item">
+                        
                         {history.map((h, i) => {
                             return (
                                 <div>
+                                    {h.orders.map((o, i) => {
+                                        return (
+                                            <div key={i}>
+                                                <h6>Product status: {o.status}</h6>
+                                                <h6>
+                                                    Product amount: VND {o.amount}
+                                                </h6>
+
+                                            </div>
+                                        );
+                                    })}
                                     <hr />
                                     {h.products.map((p, i) => {
                                         return (
                                             <div key={i}>
                                                 <h6>Product name: {p.name}</h6>
                                                 <h6>
-                                                    Product price: ${p.price}
+                                                    Product price: VND {p.price}
                                                 </h6>
 
                                             </div>
                                         );
+                                        
                                     })}
+                                    
                                 </div>
                             );
                         })}
+
                     </li>
                 </ul>
             </div>
@@ -106,6 +134,7 @@ const Dashboard = () => {
                     {userInfo()}
                     {purchaseHistory(history)}
                 </div>
+
             </div>
         </Layout>
     );

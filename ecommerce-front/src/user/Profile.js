@@ -16,7 +16,7 @@ const Profile = ({ match }) => {
     });
 
     const { token } = isAuthenticated();
-    const { name, email, password, error, success } = values;
+    const { name, email, password, phonenumber, error, success } = values;
 
     const init = userId => {
         // console.log(userId);
@@ -72,10 +72,12 @@ const Profile = ({ match }) => {
                 <label className="text-muted">Email</label>
                 <input type="email" onChange={handleChange('email')} className="form-control" value={email} />
             </div>
+
             <div className="form-group">
                 <label className="text-muted">Password</label>
                 <input type="password" onChange={handleChange('password')} className="form-control" value={password} />
             </div>
+            
 
             <button onClick={clickSubmit} className="btn btn-primary">
                 Submit

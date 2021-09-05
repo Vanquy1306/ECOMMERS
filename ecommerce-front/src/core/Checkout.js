@@ -15,7 +15,8 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
         clientToken: null,
         error: '',
         instance: {},
-        address: ''
+        address: '',
+        phonenumber:''
     });
 
     const userId = isAuthenticated() && isAuthenticated().user._id;
@@ -40,7 +41,9 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     const handleAddress = event => {
         setData({ ...data, address: event.target.value });
     };
-
+    const handlePhone = event => {
+        setData({ ...data, phonenumber: event.target.value });
+    };
     const getTotal = () => {
         return products.reduce((currentValue, nextValue) => {
             return currentValue + nextValue.count * nextValue.price;
@@ -58,6 +61,8 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     };
 
     let deliveryAddress = data.address;
+    let deliveryPhonenumber = data.phonenumber;
+
 
     const buy = () => {
         setData({ loading: true });
@@ -91,7 +96,8 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                             products: products,
                             transaction_id: response.transaction.id,
                             amount: response.transaction.amount,
-                            address: deliveryAddress
+                            address: deliveryAddress,
+                            phonenumber: deliveryPhonenumber
                         };
 
                         createOrder(userId, token, createOrderData)
@@ -132,6 +138,13 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                             className="form-control"
                             value={data.address}
                             placeholder="Type your delivery address here..."
+                        />
+                        <label className="text-muted">Delivery Phone Number:</label>
+                        <textarea
+                            onChange={handlePhone}
+                            className="form-control"
+                            value={data.phonenumber}
+                            placeholder="Type your delivery phone number here..."
                         />
                     </div>
 

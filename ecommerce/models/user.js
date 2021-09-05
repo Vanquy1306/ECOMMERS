@@ -31,6 +31,9 @@ const userSchema = new mongoose.Schema({
     history: {
         type: Array,
         default: []
+    },
+    phonenumber:{
+      type: Number
     }
 },
 { timestamps: true }

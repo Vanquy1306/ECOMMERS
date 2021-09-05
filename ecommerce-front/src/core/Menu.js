@@ -3,7 +3,6 @@ import React, { Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
-
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
         return { color: "#b9b0b0" };
@@ -12,8 +11,8 @@ const isActive = (history, path) => {
     }
 };
 
+
 const Menu = ({ history }) => (
-    
         <ul className="nav">
             <div className=" nav left-links" >
             <li className="navbar-logo">

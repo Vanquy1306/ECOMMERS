@@ -37,7 +37,7 @@ exports.read = (req, res) => {
 
 exports.update = (req, res) => {
     // console.log('UPDATE USER - req.user', req.user, 'UPDATE DATA', req.body);
-    const { name, password } = req.body;
+    const { name, password, phonenumber } = req.body;
 
     User.findOne({ _id: req.profile._id }, (err, user) => {
         if (err || !user) {
@@ -61,6 +61,13 @@ exports.update = (req, res) => {
             } else {
                 user.password = password;
             }
+        }
+        if (!phonenumber) {
+            return res.status(400).json({
+                error: 'Phone is required'
+            });
+        } else {
+            user.phonenumber = phonenumber;
         }
 
         user.save((err, updatedUser) => {
@@ -118,4 +125,17 @@ exports.purchaseHistory = (req, res) => {
 };
 exports.getStatusValues = (req, res) => {
     res.json(Order.schema.path('status').enumValues);
+};
+exports.listUsers = (req, res) => {
+    User.find()
+        .populate('user', '_id name')
+        .sort('-created')
+        .exec((err, users) => {
+            if (err) {
+                return res.status(400).json({
+                    error: errorHandler(error)
+                });
+            }
+            res.json(users);
+        });
 };

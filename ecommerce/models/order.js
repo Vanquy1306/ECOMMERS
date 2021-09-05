@@ -20,6 +20,7 @@ const OrderSchema = new mongoose.Schema(
     transaction_id: {},
     amount: { type: Number },
     address: String,
+    phonenumber: { type: Number },
     status: {
       type: String,
       default: "Not processed",
