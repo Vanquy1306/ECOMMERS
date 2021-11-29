@@ -1,28 +1,30 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Layout from '../core/Layout';
-import { Link } from 'react-router-dom';
 import { signup } from '../auth'
 import './Form.css';
+import { Link } from 'react-router-dom';
+
 const Signup = () => {
     const [values, setValues] = useState({
         name: '',
         email: '',
         password: '',
         error: '',
+        phonenumber: '',
         success: false
     });
-    const { name, email, password, success, error } = values;
+    const { name, email, password, phonenumber, success, error } = values;
 
 
     const handleChange = name => event => {
         setValues({ ...values, error: false, [name]: event.target.value });
     };
-    
+
 
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, error: false });
-        signup({ name, email, password }).then(data => {
+        signup({ name, email, password, phonenumber }).then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error, success: false });
             } else {
@@ -40,7 +42,7 @@ const Signup = () => {
     const login = () => (
         <div className="mt-5">
             <Link to="/signin" className="text-warning">
-            Already have an account? Login
+                Already have an account? Login
 
             </Link>
         </div>
@@ -66,7 +68,7 @@ const Signup = () => {
             <button onClick={clickSubmit} className="form-input-btn">
                 Register
             </button>
-            {login()};
+            {login()}
         </form>
     );
 
@@ -90,7 +92,7 @@ const Signup = () => {
             description="Signup to E-commerce Coffee App"
             className="container col-md-8 offset-md-2"
         >
-           {showSuccess()}
+            {showSuccess()}
             {showError()}
             {signUpForm()}
         </Layout>

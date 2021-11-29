@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getCategories, deleteCategory } from "./apiAdmin";
-import Sidebar from "../user/Sidebar";
+import Sidebar from "../account/Sidebar";
 const ManageCategory = () => {
     const [products, setProducts] = useState([]);
 

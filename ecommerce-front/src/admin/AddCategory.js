@@ -4,7 +4,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { createCategory } from "./apiAdmin";
-import Sidebar from "../user/Sidebar";
+import Sidebar from "../account/Sidebar";
 
 const AddCategory = () => {
     const [name, setName] = useState("");

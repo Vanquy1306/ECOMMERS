@@ -11,7 +11,6 @@ const isActive = (history, path) => {
     }
 };
 
-
 const Menu = ({ history }) => (
         <ul className="nav">
             <div className=" nav left-links" >
@@ -48,10 +47,10 @@ const Menu = ({ history }) => (
                 <li className="nav-item">
                     <Link
                         className="nav-link"
-                        style={isActive(history, "/user/dashboard")}
-                        to="/user/dashboard"
+                        style={isActive(history, "/account/dashboard")}
+                        to="/account/dashboard"
                     >
-                        DASHBOARD
+                        ACCOUNT
                     </Link>
                 </li>
             )}

@@ -4,6 +4,7 @@ import { isAuthenticated } from "../auth";
 import { listOrders, getStatusValues, updateOrderStatus, listUsers } from "../admin/apiAdmin";
 import "./featuredInfo.css";
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
+import { Link } from 'react-router-dom';
 
 
 const FeaturedInfo = () => {
@@ -94,30 +95,18 @@ const handleStatusChange = (e, orderId) => {
       }
   );
 };
-const showStatus = o => (
-  <div className="form-group">
-      <h3 className="mark mb-4">Status: {o.status}</h3>
-      <select
-          className="form-control"
-          onChange={e => handleStatusChange(e, o._id)}
-      >
-          <option>Update Status</option>
-          {statusValues.map((status, index) => (
-              <option key={index} value={status}>
-                  {status}
-              </option>
-          ))}
-      </select>
-  </div>
-);
+
   return (
     <div className="featured">
       <div className="featuredItem">
-        <span className="featuredTitle">Total Orders</span>
+        <span className="featuredTitle"> Total Orders</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">{showOrders()}</span>
           <span className="featuredMoneyRate">
           <ArrowUpward className="featuredIcon"/>
+          <Link to="/admin/orders" className="text-warning">
+                         View Order
+            </Link>
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>
@@ -135,7 +124,7 @@ const showStatus = o => (
       <div className="featuredItem">
         <span className="featuredTitle">Profits</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">VNĐ {getTotal(orders)}</span>
+          <span className="featuredMoney">$ {getTotal(orders)}</span>
           <span className="featuredMoneyRate">
              <ArrowUpward className="featuredIcon"/>
           </span>

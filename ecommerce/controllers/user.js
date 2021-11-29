@@ -37,7 +37,7 @@ exports.read = (req, res) => {
 
 exports.update = (req, res) => {
     // console.log('UPDATE USER - req.user', req.user, 'UPDATE DATA', req.body);
-    const { name, password, phonenumber } = req.body;
+    const { name, password } = req.body;
 
     User.findOne({ _id: req.profile._id }, (err, user) => {
         if (err || !user) {
@@ -62,13 +62,7 @@ exports.update = (req, res) => {
                 user.password = password;
             }
         }
-        if (!phonenumber) {
-            return res.status(400).json({
-                error: 'Phone is required'
-            });
-        } else {
-            user.phonenumber = phonenumber;
-        }
+
 
         user.save((err, updatedUser) => {
             if (err) {

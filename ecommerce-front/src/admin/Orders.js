@@ -5,7 +5,7 @@ import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { listOrders, getStatusValues, updateOrderStatus } from "./apiAdmin";
 import moment from "moment";
-import Sidebar from "../user/Sidebar";
+import Sidebar from "../account/Sidebar";
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -118,16 +118,11 @@ const Orders = () => {
                                     <li className="list-group-item">
                                         {showStatus(o)}
                                     </li>
-                                    <li className="list-group-item">
-                                        Transaction ID: {o.transaction_id}
-                                    </li>
+
                                     <li className="list-group-item">
                                         Amount: ${o.amount}
                                     </li>
-                                    <li className="list-group-item">
-                                        Ordered on:{" "}
-                                        {moment(o.createdAt).fromNow()}
-                                    </li>
+
                                     <li className="list-group-item">
                                         Delivery address: {o.address}
                                     </li>
@@ -153,7 +148,6 @@ const Orders = () => {
                                         {showInput("Product name", p.name)}
                                         {showInput("Product price", p.price)}
                                         {showInput("Product total", p.count)}
-                                        {showInput("Product Id", p._id)}
                                     </div>
                                 ))}
                             </div>

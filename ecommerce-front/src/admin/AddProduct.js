@@ -4,7 +4,7 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
 import { createProduct, getCategories } from './apiAdmin';
-import Sidebar from '../user/Sidebar';
+import Sidebar from '../account/Sidebar';
 
 const AddProduct = () => {
     const [values, setValues] = useState({

@@ -20,12 +20,14 @@ const app = express();
 
 // db
 mongoose
-.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ecommerce.trnhv.mongodb.net/ecommerce?retryWrites=true&w=majority`,
+.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@final.6vcfv.mongodb.net/final?retryWrites=true&w=majority`,
     {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
-   useFindAndModify: false
+   useFindAndModify: false,
+   dbName: 'web-server'
+
 })
 .then(() => console.log("DB Connected")
 )
@@ -49,8 +51,14 @@ app.use('/api', braintreeRoutes);
 app.use('/api', orderRoutes);
 
 
-const port = process.env.PORT || 8000;
+// const port = process.env.PORT || 8000;
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`);
+// });
+
+// Production
+var server = app.listen(process.env.PORT || 8000 , function () {
+    var port = server.address().port;
+    console.log(`Server is running on port ${port}`)
 });

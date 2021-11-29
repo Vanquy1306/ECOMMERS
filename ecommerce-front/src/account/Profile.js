@@ -11,6 +11,7 @@ const Profile = ({ match }) => {
         name: '',
         email: '',
         password: '',
+        phonenumber:'',
         error: false,
         success: false
     });
@@ -24,7 +25,7 @@ const Profile = ({ match }) => {
             if (data.error) {
                 setValues({ ...values, error: true });
             } else {
-                setValues({ ...values, name: data.name, email: data.email });
+                setValues({ ...values, name: data.name, email: data.email, phonenumber: data.phonenumber });
             }
         });
     };
@@ -39,7 +40,7 @@ const Profile = ({ match }) => {
 
     const clickSubmit = e => {
         e.preventDefault();
-        update(match.params.userId, token, { name, email, password }).then(data => {
+        update(match.params.userId, token, { name, email, password, phonenumber }).then(data => {
             if (data.error) {
                 // console.log(data.error);
                 alert(data.error);
@@ -49,6 +50,8 @@ const Profile = ({ match }) => {
                         ...values,
                         name: data.name,
                         email: data.email,
+                        password: data.password,
+                        phonenumber: data.phonenumber,
                         success: true
                     });
                 });
@@ -58,7 +61,7 @@ const Profile = ({ match }) => {
 
     const redirectUser = success => {
         if (success) {
-            return <Redirect to="/cart" />;
+            return <Redirect to="/account/dashboard" />;
         }
     };
 
@@ -70,12 +73,15 @@ const Profile = ({ match }) => {
             </div>
             <div className="form-group">
                 <label className="text-muted">Email</label>
-                <input type="email" onChange={handleChange('email')} className="form-control" value={email} />
+                <input type="email" onChange={handleChange('email')} className="form-control" value={email} disabled = {true} />
             </div>
-
+            <div className="form-group">
+                <label className="text-muted">Phone</label>
+                <input type="number" onChange={handleChange('phonenumber')} className="form-control" value={phonenumber} />
+            </div>
             <div className="form-group">
                 <label className="text-muted">Password</label>
-                <input type="password" onChange={handleChange('password')} className="form-control" value={password} />
+                <input type="password" onChange={handleChange('password')} className="form-control" value={password}  />
             </div>
             
 
@@ -88,7 +94,7 @@ const Profile = ({ match }) => {
     return (
         <Layout title="Profile" description="Update your profile" className="container-fluid">
             <h2 className="mb-4">Profile update</h2>
-            {profileUpdate(name, email, password)}
+            {profileUpdate(name, email, password, phonenumber)}
             {redirectUser(success)}
         </Layout>
     );

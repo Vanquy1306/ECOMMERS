@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import Layout from '../core/Layout';
 import {  Redirect  } from 'react-router-dom';
 import { signin, authenticate, isAuthenticated } from '../auth'
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
     const [values, setValues] = useState({
-        email: 'admin@admin.com',
-        password: 'admin1306',
+        email: '',
+        password: '',
         error: '',
         loading: false,
         redirectToReferrer: false
@@ -36,6 +37,14 @@ const Signin = () => {
             }
         });
     };
+    const register = () => (
+        <div className="mt-5">
+            <Link to="/signup" className="text-warning">
+                Already have an account? Signup
+
+            </Link>
+        </div>
+    );
     const signUpForm = () => (
         <form className="form-center">
             <h1> Sign In </h1>
@@ -52,6 +61,8 @@ const Signin = () => {
             <button onClick={clickSubmit} className="form-input-btn">
                 Login
             </button>
+            {register()}
+
         </form>
     );
 

@@ -4,7 +4,7 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link, Redirect } from 'react-router-dom';
 import { getProduct, getCategories, updateProduct } from './apiAdmin';
-import Sidebar from "../user/Sidebar";
+import Sidebar from "../account/Sidebar";
 
 
 const UpdateProduct = ({ match }) => {
